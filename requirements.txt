@@ -21,3 +21,7 @@ matplotlib>=3.7.0
 numpy>=1.24.0
 pandas>=2.0.0
 PyYAML>=6.0
+
+# Demo interface
+streamlit>=1.35.0
+gradio>=4.0.0

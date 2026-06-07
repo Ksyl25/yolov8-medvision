@@ -39,6 +39,18 @@ Chest X-ray (DICOM/JPG)
 
 ---
 
+## Demo
+
+> Run the demo locally — upload a chest X-ray and get detections + clinical report.
+
+```bash
+streamlit run app.py
+```
+
+![Demo screenshot](docs/demo_screenshot.png)
+
+---
+
 ## Dataset — VinBigData
 
 - **15 000** chest X-rays annotated by professional radiologists
@@ -79,10 +91,22 @@ Training curves and confusion matrices are available in [`results/`](results/).
 
 ---
 
+## Training Curves
+
+### V2 — Best model (YOLOv8m, 50 epochs, 7 500 images)
+![Training curves V2](results/v2/results.png)
+![Confusion matrix V2](results/v2/confusion_matrix_normalized.png)
+
+### V1m — YOLOv8m, 50 epochs, 5 000 images
+![Training curves V1m](results/v1m/results.png)
+
+---
+
 ## Project Structure
 
 ```
 yolov8-medvision/
+├── app.py                               # Streamlit demo
 ├── notebooks/
 │   └── MEDICALCAPTIONING_CLEAN.ipynb   # Full training & inference notebook
 ├── src/
@@ -93,6 +117,9 @@ yolov8-medvision/
 │   ├── v1s/                             # YOLOv8s 10ep curves & samples
 │   ├── v1m/                             # YOLOv8m 50ep 5k curves & samples
 │   └── v2/                              # YOLOv8m 50ep 7.5k curves & samples
+├── docs/
+│   └── demo.md                          # Demo setup instructions
+├── .env.example                         # Environment variables template
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -106,7 +133,7 @@ yolov8-medvision/
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/yolov8-medvision.git
+git clone https://github.com/Ksyl25/yolov8-medvision.git
 cd yolov8-medvision
 pip install -r requirements.txt
 ```
