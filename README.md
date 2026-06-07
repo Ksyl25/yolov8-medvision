@@ -126,7 +126,9 @@ yolov8-medvision/
 ```
 
 > **Note:** Model weights (`*.pt`) are excluded from the repository due to size.  
-> Download them from the [Releases](#) tab or train from the notebook.
+> Download them from the [**Releases**](https://github.com/Ksyl25/yolov8-medvision/releases/tag/v1.0.0) tab or train from the notebook.
+>
+> Recommended: [`yolov8m_50ep_7500_mAP390.pt`](https://github.com/Ksyl25/yolov8-medvision/releases/download/v1.0.0/yolov8m_50ep_7500_mAP390.pt) (50 MB, mAP50=0.390)
 
 ---
 
