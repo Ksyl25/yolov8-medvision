@@ -1,0 +1,41 @@
+# Model weights (too large for git)
+*.pt
+*.pth
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# Data archives
+*.zip
+*.tar.gz
+*.gz
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & runs (local training artifacts)
+runs/
+wandb/
+vinbigdata_runs/

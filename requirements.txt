@@ -1,0 +1,23 @@
+# Core deep learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Object detection
+ultralytics>=8.0.0
+
+# LLM & HuggingFace ecosystem
+transformers>=4.40.0
+accelerate>=0.27.0
+bitsandbytes>=0.43.0
+huggingface_hub>=0.22.0
+sentencepiece>=0.1.99
+
+# Vision / image processing
+opencv-python>=4.8.0
+Pillow>=10.0.0
+matplotlib>=3.7.0
+
+# Data utilities
+numpy>=1.24.0
+pandas>=2.0.0
+PyYAML>=6.0
