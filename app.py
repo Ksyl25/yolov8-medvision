@@ -11,20 +11,28 @@ import io
 import os
 import tempfile
 
-import cv2
-import matplotlib.patches as patches
-import matplotlib.pyplot as plt
-import numpy as np
 import streamlit as st
-import torch
-from PIL import Image
 
-# ── page config ───────────────────────────────────────────────────────────────
+# ── page config (must come before any other st call) ──────────────────────────
 st.set_page_config(
     page_title="YOLOv8 MedVision",
     page_icon="🫁",
     layout="wide",
 )
+
+# ── optional heavy imports — UI loads regardless, error shown on inference ─────
+try:
+    import cv2
+    import matplotlib.patches as patches
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import torch
+    from PIL import Image
+    _DEPS_OK = True
+    GPU_AVAILABLE = torch.cuda.is_available()
+except ImportError as _e:
+    _DEPS_OK = False
+    GPU_AVAILABLE = False
 
 # ── constants ──────────────────────────────────────────────────────────────────
 CLASS_NAMES = [
@@ -35,7 +43,6 @@ CLASS_NAMES = [
     "Pulmonary_fibrosis", "No finding",
 ]
 CONF_COLORS = {"HAUTE": "#00C853", "MOYENNE": "#FFD600", "FAIBLE": "#FF1744"}
-GPU_AVAILABLE = torch.cuda.is_available()
 
 
 def _conf_level(conf: float) -> tuple[str, str]:
@@ -118,6 +125,14 @@ elif model_path_text.strip():
 
 if resolved_model_path is None:
     st.info("👆 Please upload or specify a YOLO model in the sidebar to get started.")
+    st.stop()
+
+if not _DEPS_OK:
+    st.error(
+        "**Missing ML dependencies.** Run the following then restart Streamlit:\n\n"
+        "```bash\npip install -r requirements.txt\n```\n\n"
+        "PyTorch, OpenCV, Pillow and Matplotlib are required for inference."
+    )
     st.stop()
 
 # ── load model ─────────────────────────────────────────────────────────────────
